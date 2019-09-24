@@ -1,0 +1,8 @@
+import pprint
+region = "us-east-1"
+
+def lambda_handler(event,context):
+    s3 = boto3.client('s3')
+    res = s3.list_buckets()
+    for i in res["Buckets"]:
+      print("Buckets are",i["Name"])
